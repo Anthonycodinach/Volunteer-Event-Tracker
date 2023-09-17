@@ -27,74 +27,38 @@
             <p> 84 hours </p>
         </div>
 
-        <div class="profileItem">
-            <h2>Contact Info</h2>
-            <p>{{memberData.phone_number}}</p>
-            <p>{{memberData.email}}</p>
-        </div>
-    </div>
 
- <h1>Your Upcoming Events</h1>
-     {{#each eventsList as |event|}}
-       <div class="profileCategory">
-        <div class="profileImageContainer">
-            <img class="profileImage" src="/images/{{event.picture}}" alt="{{event.name}}">
-        </div>
-        <div class="profileItem" id="profileIntroduction">
-            <h1>{{event.name}}</h1>
-            <h2>{{event.date_start}}</h2>
-            <p class="profileAboutMe">{{event.description}}</p>
-            <h2> <a href="/events/{{id}}" id="{{id}}" type="submit">
-                View This Event ⟶ </a> </h2>
-        </div>
-    </div>
-        {{/each }}
+ <h2>Welcome, {{memberData.first_name}}!!!</h2>
+    <div id="profile">
+            <h1>Profile</h1>
+            <div class="profileCategory" id="profilePersonal">
+                <div class="profileItem">
+                    <h2>Name</h2>
+                     <p>{{memberData.first_name}}</p>
+                     <p>{{memberData.role}}</p>
+                </div>
+                <div class="profileItem">
+                    <h2>Gender</h2>
+                    <p>{{memberData.gender}}</p>
+                </div>
+                <div class="profileItem">
+                    <h2>Contact Info</h2>
+                    <p>{{memberData.email}}</p>
+                </div>
+            </div>
+            {{!-- {{#if eventsData }} --}}
+            <h1>Current Volunteer Events</h1>
+            <div class="profileCategory" id="profileEvents">
+                {{#each eventData}}
+                    <div class="eventCard">
+                        <img src="/images/{{picture}}" alt="{{name}}">
+                         <h2>{{name}}</h2>
+                         <h2>{{format_date date_start}}</h2>
+                    </div>
+                {{/each}}  
+            </div>
+            {{!-- {{else}} --}}
+    </div>        
+            
+{{!-- <script src="/js/profile.js"></script> --}}
 
-    <h1>Previous Events</h1>
-    <div class="profileCategory">
-        <div class="profileImageContainer">
-            <img class="profileImage" src="/images/volunteerCoach.jpg">
-        </div>
-        <div class="profileItem" id="profileIntroduction">
-            <h1>Youth Sports Coach</h1>
-            <h2>June 17th, 2023</h2>
-            <p class="profileAboutMe">Empower young athletes and shape future champions as a youth sports coach. Your
-                passion for sports can make a significant impact on their lives, fostering teamwork and valuable life
-                skills. Join us today to inspire and be inspired on and off the field. Volunteer as a youth sports coach
-                and make a difference!</p>
-        </div>
-    </div>
-    <div class="profileCategory">
-        <div class="profileImageContainer">
-            <img class="profileImage" src="/images/volunteerHospice.jpg">
-        </div>
-        <div class="profileItem" id="profileIntroduction">
-            <h1>Hospice Care</h1>
-            <h2>June 25th, 2023</h2>
-            <p class="profileAboutMe">Volunteer at a hospice care center and bring comfort to those in need. Your
-                presence can make a difference in the lives of terminally ill patients and their families. Join us in
-                offering compassion and support during their challenging times. Make a meaningful impact, volunteer
-                today!</p>
-        </div>
-    </div>
-    <div class="profileCategory">
-        <div class="profileImageContainer">
-            <img class="profileImage" src="/images/communityClean.jpg">
-        </div>
-        <div class="profileItem" id="profileIntroduction">
-            <h1>Community Clean Up</h1>
-            <h2>June 30th, 2023</h2>
-            <p class="profileAboutMe">Make a positive impact on your community by volunteering for a community cleanup
-                event. Join us to protect the environment, preserve wildlife habitats, and create a cleaner, greener
-                world. Your efforts matter, so grab some gloves and join the cause. Volunteer today and be part of the
-                change!</p>
-        </div>
-    </div>
-    <div class="profileCategory">
-        <div class="profileItem">
-            <h2>Create a New Event</h2>
-            <a id="newEventButton" href="/newevent">New Event</a>
-        </div>
-    </div>
-    </div>
-        <script src="/js/profile.js"></script>
